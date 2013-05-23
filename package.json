@@ -1,14 +1,14 @@
 {
   "name": "nip",
   "description": "Node Input/output Piping",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "author": "Moshe Kolodny <kolodny.github@gmail.com>",
   "repository": {
     "type": "git",
     "url": "http://github.com/kolodny/nip.git"
   },
   "dependencies": {
-    "ccolors": "0.2.x"
+    "ccolors": "0.3.x"
   },
   "bin": {
     "nip": "./index.js"
