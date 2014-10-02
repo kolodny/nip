@@ -4,7 +4,7 @@
 # Install
 With [node.js](http://nodejs.org/) and [npm](http://github.com/isaacs/npm):
 
-    npm install npipe -g
+    npm install nip -g
     
 If you omit the `-g` then make sure to add the local npm module path to your dafault path
 
