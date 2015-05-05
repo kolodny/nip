@@ -3,35 +3,52 @@
 var nip = require('..');
 var fs = require('fs');
 var path = require('path');
-var argv = require('minimist')(process.argv.slice(2));
+var program = require('commander');
 
-var jsFile = argv.f || argv.file
+program
+  .version(require('../package.json').version)
+  .usage('[js-code] <file ...>')
+  .option('-f, --file', 'javascript file containing the js-code')
+  .option('-1, --first-line-only', 'process whole file at once, not line by line')
+  .option('-n, --line-splitter [splitter]', 'line spliter regex or string', '/\\r?\\n/')
+  .option('-n, --line-joiner [joiner]', 'string to join lines together with', '\n')
+  .option('-c, --col-splitter [spliter]', 'column splitter regex or string', '\\s+')
+  ;
 
-if (argv.h || argv.help) {
+program.on('--help', function() {
   console.log(fs.readFileSync(__dirname + '/usage.txt').toString());
-  return;
-}
+  console.log(fs.readFileSync(__dirname + '/examples.txt').toString());
+});
 
-if (!argv._.length && !jsFile) {
-  console.error('You muse specify a js-exec or a --js-file\nsee nip --help for more info');
-  return;
+program.parse(process.argv);
+
+
+if (!program.args.length && !program.file) {
+  console.error('You muse specify [js-code] or a --js-file\nsee nip --help for more info');
+  return 1;
 }
 
 
 
 var callbackStr;
-if (jsFile) {
-  callbackStr = fs.readFileSync(jsFile).toString();
+if (program.file) {
+  callbackStr = fs.readFileSync(program.file).toString();
 } else {
-  callbackStr = argv._.shift();
+  callbackStr = program.args.shift();
 }
 
-var files = argv._;
+var files = program.args;
+
+if (!files.length) {
+
+  // use stdin
+  files.push('-');
+}
 
 var callback;
 try {
   if (/^\s*return\b/.test(callbackStr)) {
-    callback = Function('return function(line, index) {' + callbackStr + '}')();
+    callback = Function('return function(line, index, cols, lines) {' + callbackStr + '}')();
   } else if (/\s*function\b/.test(callbackStr)) {
     callback = Function('return ' + callbackStr)();
   } else {
@@ -39,17 +56,21 @@ try {
   }
 } catch (e) {
   console.error("coudn't build callback function", e);
-  return;
+  return 1;
 }
 
-files = files.map(function(file) {
-  return (file === '-') ? nip.STDIN : file;
-});
-
-console.log(files)
+var regexize = function(regexLike) {
+  return (regexLike[0] === '/') ?
+    Function('return ' + regexLike)() :
+    RegExp(regexLike);
+}
 
 nip({
   files: files,
-  callback: callback
+  callback: callback,
+  lineSeparatorRegex: regexize(program.lineSplitter),
+  colSeparatorRegex: regexize(program.colSplitter),
+  lineSeparator: program.lineJoiner,
+  firstLineOnly: program.firstLineOnly
 });
 
