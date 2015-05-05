@@ -8,15 +8,17 @@
     "url": "http://github.com/kolodny/nip.git"
   },
   "dependencies": {
-    "ccolors": "0.3.x"
+    "ccolors": "0.3.x",
+    "minimist": "^1.1.1",
+    "split": "^0.3.3"
   },
   "bin": {
     "nip": "./index.js"
   },
   "keywords": [
-  	"cli",
-  	"unix",
-  	"utility",
+    "cli",
+    "unix",
+    "utility",
     "sed",
     "grep",
     "awk"

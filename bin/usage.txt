@@ -1,0 +1,21 @@
+Usage: nip [js-executor] {OPTIONS} [files, ...]
+
+The js-executor can either be a js function-like string like this:
+    'return line.toUpperCase()'
+or can be a file which contains the js function-like string
+
+A js function-like string can be one of these three formats:
+    'return line.toUpperCase()'
+    'function(line, lineIndex) { return line.toUpperCase(); }'
+    'var setup = 123; return function(line) { return line; }'
+If used like in the first example, the variables line and index
+are available.
+You can return a transformed line or false to omit the line
+
+You must supply either a js function-like string or a --file
+
+Standard Options:
+
+    --file, -f  The file that contains the js-executor
+
+    --help, -h  Show this message

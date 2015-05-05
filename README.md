@@ -2,11 +2,10 @@
 `nip` is a command line utility for performing any type of processing to and from files and pipes
 
 # Install
-With [node.js](http://nodejs.org/) and [npm](http://github.com/isaacs/npm):
 
     npm install nip -g
     
-If you omit the `-g` then make sure to add the local npm module path to your dafault path
+If you omit the `-g` then make sure to add the local npm module path to your default path
 
 You should now be able to call `nip` from the command line.
 
@@ -14,14 +13,14 @@ You should now be able to call `nip` from the command line.
 
 The js-function can be one of three syntaxes:
 
-1. `function(line, index, lines, cols) { /* code here */ return value; }`
-2. `return line.substr(0, 10) + index`
+1. `return line.substr(0, 10) + index`
+2. `function(line, index, lines, cols) { /* code here */ return value; }`
 3. `/* code */ return function(line, i, lines) { /* ... */ return value; }`
 
-The names `line`, `index`, `lines`, and `cols` can be changed in the first and third style syntaxes
+The names `line`, `index`, `lines`, and `cols` can be changed in the second and third style syntaxes
 
-If the return value is `false` or `undefined` nothing is sent to output stream  
-If the return value is `true` then the line will be sent to the output stream  
+If the return value is `false` nothing is sent to output stream  
+If the return value is not a string or number then the line will be sent to the output stream  
 else the return value will be sent to the output stream (including an empty string)
 
 ### options
@@ -107,14 +106,13 @@ find the biggest number from all files in a directory:
 
 ---
 
-By default there are `start`, `end`, `fileStart`, and `fileEnd` events you can register, you can also register in  
-`this.onend = function() {/* code */}` format
+By default there are `start`, `end`, `fileStart`, and `fileEnd` events you can register by doing `this.on('end', function() {})`
 
 The context inside the main function can be used as a global store, and has a `filename` property
 
 ---
 
 ### Why
-This is for people who aren't "devops" and who can't crank out a fancy piped shell script using `awk`, `sed,` and `grep`. Also most programmers who have node installed can write a quick javascript one+ liner to do what the oldschoolers would make a shell script out of.
+This is for people who aren't "devops" and who can't crank out a fancy piped shell script using `awk` and `sed`. Also most programmers who have node installed can write a quick javascript one+ liner to do what the oldschoolers would make a shell script out of.
 
 https://github.com/kolodny/nip
