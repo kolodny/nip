@@ -49,12 +49,13 @@ var callback;
 try {
   if (/^\s*return\b/.test(callbackStr)) {
     callback = Function('return function(line, index, cols, lines) {' + callbackStr + '}')();
-  } else if (/\s*function\b/.test(callbackStr)) {
+  } else if (/^\s*function\b/.test(callbackStr)) {
     callback = Function('return ' + callbackStr)();
   } else {
     callback = Function(callbackStr)();
   }
 } catch (e) {
+  console.log(callbackStr)
   console.error("coudn't build callback function", e);
   return 1;
 }

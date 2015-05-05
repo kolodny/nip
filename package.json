@@ -12,7 +12,7 @@
     "split": "^0.3.3"
   },
   "bin": {
-    "nip": "./index.js"
+    "nip": "./bin/nip"
   },
   "keywords": [
     "cli",
@@ -27,9 +27,12 @@
   },
   "homepage": "https://github.com/kolodny/nip#readme",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "rek": "0.0.4"
+  },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha 'test/**/index.js'"
   },
   "license": "MIT"
 }

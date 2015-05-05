@@ -1,4 +1,8 @@
 # nip - Node Input/output Piper
+
+[![Build Status](https://travis-ci.org/kolodny/nip.svg?branch=master)](https://travis-ci.org/kolodny/nip)
+
+
 `nip` is a command line utility for performing any type of processing to and from files and pipes
 
 # Install
