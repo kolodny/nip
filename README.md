@@ -82,19 +82,12 @@ Run the contents of `jsfile.js` on `file.txt`:
 nip -f jsfile.js file.txt
 ```
 
-Print out a file in an easy to read format
-
-```
-nip 'return index % 2 ? line.red.whiteHiBg : line.yellow.blueBg.bold' file.txt
-```
-[read more about `ccolors`](https://github.com/kolodny/ccolors)
-
 Like most unix commands, you can pipe the input and/or output:
 
-generate a script file to rename files recursively and sequentiality
+generate a script file to rename files recursively and sequentiality  
 `find . -type f |  nip 'return "mv " + line + " " + line.replace(/\/[^/]*$/, "") + "/" + index;' > rename-script`
 
-rename files recursively and sequentiality
+rename files recursively and sequentiality  
 `find . -type f |  nip 'return "mv " + line + " " + line.replace(/\/[^/]*$/, "") + "/" + index;' | sh`
 
 find the biggest number from all files in a directory:
