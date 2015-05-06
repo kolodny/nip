@@ -5,7 +5,7 @@
   "author": "Moshe Kolodny <kolodny.github@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/kolodny/nip.git"
+    "url": "https://github.com/kolodny/nip/issues"
   },
   "dependencies": {
     "commander": "^2.8.1",
@@ -34,5 +34,8 @@
   "scripts": {
     "test": "mocha 'test/**/index.js'"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  }
 }
