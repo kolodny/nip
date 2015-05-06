@@ -1,0 +1,14 @@
+The js-code can either be a js function-like string like this:
+    'return line.toUpperCase()'
+or you can specify a --file which contains the js-code
+
+A js function-like string can be one of these three formats:
+    'return line.toUpperCase()'
+    'function(line, lineIndex) { return line.toUpperCase(); }'
+    'var setup = 123; return function(line) { return line; }'
+If used like in the first example, the variables:
+  line, index, cols, lines
+are available. `lines` are only available with --first-line-only
+You can return a transformed line or false to omit the line
+
+You must supply either a js-code function-like string or a --file

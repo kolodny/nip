@@ -1,24 +1,41 @@
 {
   "name": "nip",
   "description": "Node Input/output Piping",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "author": "Moshe Kolodny <kolodny.github@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "http://github.com/kolodny/nip.git"
+    "url": "https://github.com/kolodny/nip/issues"
   },
   "dependencies": {
-    "ccolors": "0.3.x"
+    "commander": "^2.8.1",
+    "split": "^0.3.3"
   },
   "bin": {
-    "nip": "./index.js"
+    "nip": "./bin/nip"
   },
   "keywords": [
-  	"cli",
-  	"unix",
-  	"utility",
+    "cli",
+    "unix",
+    "utility",
     "sed",
     "grep",
     "awk"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/kolodny/nip/issues"
+  },
+  "homepage": "https://github.com/kolodny/nip#readme",
+  "main": "index.js",
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "rek": "0.0.4"
+  },
+  "scripts": {
+    "test": "mocha 'test/**/index.js'"
+  },
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  }
 }

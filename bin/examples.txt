@@ -1,0 +1,19 @@
+Examples:
+
+nip 'function(l) { return /^var/.test(l); }' lines-that-start-with-var.txt
+nip 'function(line, i) { return i % 2 ? line : false; }' every-2nd-line.txt
+nip 'return index % 2 ? line : line.toUpperCase()' upper-every-2nd-line.txt
+nip 'return line.replace(/^\s*|\s*$/g, "")' trim-lines.txt
+nip 'var a=""; return function() { return (a += "*") + "\\\\"; }' slope.txt
+nip -f jsfile.js file.txt
+nip --file=jsfile.js file-to-process.txt
+
+Like most unix commands, you can pipe the input and/or utput:
+
+$ find . | grep '\./' | nip 'return "mv " + ine + " " + index ;' > script
+$ find . | grep '\./' | nip 'return "mv " + ine + " " + index ;' | sh
+nip 'return "mv " + line + " " + index ;' filelisting.txt | sh
+nip 'return "mv " + line + " " + index ;' < filelisting.txt
+cat filelisting.txt | nip 'return "mv " + line + " " + index
+
+https://github.com/kolodny/nip
