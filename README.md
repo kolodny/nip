@@ -1,7 +1,9 @@
 # nip - Node Input/output Piper
 
-[![Build Status](https://travis-ci.org/kolodny/nip.svg?branch=master)](https://travis-ci.org/kolodny/nip)
-
+[![NPM version][npm-image]][npm-url]
+[![Build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
+[![Downloads][downloads-image]][downloads-url]
 
 `nip` is a command line utility for performing any type of processing to and from files and pipes
 
@@ -109,3 +111,13 @@ The context inside the main function can be used as a global store, and has a `f
 This is for people who aren't "devops" and who can't crank out a fancy piped shell script using `awk` and `sed`. Also most programmers who have node installed can write a quick javascript one+ liner to do what the oldschoolers would make a shell script out of.
 
 https://github.com/kolodny/nip
+
+
+[npm-image]: https://img.shields.io/npm/v/nip.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/nip
+[travis-image]: https://img.shields.io/travis/kolodny/nip.svg?style=flat-square
+[travis-url]: https://travis-ci.org/kolodny/nip
+[coveralls-image]: https://img.shields.io/coveralls/kolodny/nip.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/kolodny/nip
+[downloads-image]: http://img.shields.io/npm/dm/nip.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/nip
