@@ -28,6 +28,7 @@
   "homepage": "https://github.com/kolodny/nip#readme",
   "main": "index.js",
   "devDependencies": {
+    "coveralls": "^2.11.2",
     "istanbul": "^0.3.14",
     "mocha": "^2.2.4",
     "rek": "0.0.4"
