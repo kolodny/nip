@@ -1,7 +1,7 @@
 {
   "name": "nip",
   "description": "Node Input/output Piping",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Moshe Kolodny <kolodny.github@gmail.com>",
   "repository": {
     "type": "git",
@@ -32,7 +32,9 @@
     "rek": "0.0.4"
   },
   "scripts": {
-    "test": "mocha 'test/**/index.js'"
+    "test": "mocha 'test/**/*.js'",
+    "test-cov": "node ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha 'test/**/*.js' -- --reporter dot",
+    "test-travis": "node --harmony ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec"
   },
   "license": "MIT",
   "directories": {

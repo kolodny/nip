@@ -18,8 +18,8 @@ You should now be able to call `nip` from the command line.
 The js-function can be one of three syntaxes:
 
 1. `return line.substr(0, 10) + index`
-2. `function(line, index, lines, cols) { /* code here */ return value; }`
-3. `/* code */ return function(line, i, lines) { /* ... */ return value; }`
+2. `function(line, index, cols, lines) { /* code here */ return value; }`
+3. `/* code */ return function(line, i, cols, lines) { /* ... */ return value; }`
 
 The names `line`, `index`, `lines`, and `cols` can be changed in the second and third style syntaxes
 
@@ -40,10 +40,6 @@ you must supply either this option or the `js-function` argument
 this is useful if you plan on proccessing the file as a whole, namely through the `lines` variable  
 for examaple (not a useful one): `nip 'return lines.length' -1 file.txt`
 
-----
-
-`-c` or `--cols`
->tell `nip` to pass in an array of values split from each line as the fourth argument
 
 ----
 
