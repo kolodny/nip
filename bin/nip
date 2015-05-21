@@ -10,7 +10,7 @@ program
   .usage('[js-code] <file ...>')
   .option('-f, --file', 'javascript file containing the js-code')
   .option('-1, --first-line-only', 'process whole file at once, not line by line')
-  .option('-n, --line-splitter [splitter]', 'line spliter regex or string', '/\\r?\\n/')
+  .option('-s, --line-splitter [splitter]', 'line spliter regex or string', '/\\r?\\n/')
   .option('-n, --line-joiner [joiner]', 'string to join lines together with', '\n')
   .option('-c, --col-splitter [spliter]', 'column splitter regex or string', '\\s+')
   ;
