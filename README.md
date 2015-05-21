@@ -45,13 +45,18 @@ for example (not a useful one): `nip 'return lines.length' -1 file.txt`
 
 ----
 
-`-s string-or-regex`, `--col-splitter=string-or-regex`
+`-c string-or-regex`, `--col-splitter=string-or-regex`
 >the splitter for --cols, can be regex or string format, by default it's `/\s+/`
 
 ----
 
-`-n string-or-regex`, `--line-splitter=string-or-regex`
+`-s string-or-regex`, `--line-splitter=string-or-regex`
 >the line separator, can be regex or string format, by default we're splitting on lines so it's `\n`
+
+---
+
+`-n string`, `--line-joiner=string`
+>string used to join lines together
 
 ---
 
