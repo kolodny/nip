@@ -40,7 +40,7 @@ you must supply either this option or the `js-function` argument
 `-1` or `--first-line-only`
 >only execute once per file, not for each line  
 this is useful if you plan on proccessing the file as a whole, namely through the `lines` variable  
-for examaple (not a useful one): `nip 'return lines.length' -1 file.txt`
+for example (not a useful one): `nip 'return lines.length' -1 file.txt`
 
 
 ----
