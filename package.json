@@ -1,7 +1,7 @@
 {
   "name": "nip",
   "description": "Node Input/output Piping",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "Moshe Kolodny <kolodny.github@gmail.com>",
   "repository": {
     "type": "git",
