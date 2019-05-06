@@ -163,6 +163,29 @@ describe('simple manipulation', function() {
         process.stdin.emit('end');
       });
 
+      it('works with --in-place option', function (done) {
+        var fn = function (line, index, cols, lines) {
+          return lines.map(function (line) {
+            return line.toUpperCase();
+          }).join('\n');
+        };
+
+        nip({
+          files: [fileLocation],
+          callback: fn,
+          lineSeparatorRegex: /\n/,
+          lineSeparator: '\n',
+          colSeparatorRegex: /\s+/g,
+          firstLineOnly: true,
+          inPlace: true,
+          doneCallback: function () {
+            var inPlaceContents = fs.readFileSync(fileLocation).toString();
+            assert.equal(inPlaceContents, fileContents.toUpperCase());
+            fs.writeFileSync(fileLocation, fileContents); // restore the content of fileLocation
+            done();
+          }
+        });
+      });
     });
 
     describe('when using the buffer technique', function() {
