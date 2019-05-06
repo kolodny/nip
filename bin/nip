@@ -13,6 +13,7 @@ program
   .option('-s, --line-splitter [splitter]', 'line spliter regex or string', '/\\r?\\n/')
   .option('-n, --line-joiner [joiner]', 'string to join lines together with', '\n')
   .option('-c, --col-splitter [spliter]', 'column splitter regex or string', '\\s+')
+  .option('-i, --in-place', 'write the output in the input file')
   ;
 
 program.on('--help', function() {
@@ -72,6 +73,7 @@ nip({
   lineSeparatorRegex: regexize(program.lineSplitter),
   colSeparatorRegex: regexize(program.colSplitter),
   lineSeparator: program.lineJoiner,
-  firstLineOnly: program.firstLineOnly
+  firstLineOnly: program.firstLineOnly,
+  inPlace: program.inPlace
 });
 
