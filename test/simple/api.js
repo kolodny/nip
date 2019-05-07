@@ -186,6 +186,30 @@ describe('simple manipulation', function() {
           }
         });
       });
+
+      it('works with --in-place option and backup', function (done) {
+        var fn = function (line, index, cols, lines) {
+          return lines.map(function (line) {
+            return line.toUpperCase();
+          }).join('\n');
+        };
+
+        nip({
+          files: [fileLocation],
+          callback: fn,
+          lineSeparatorRegex: /\n/,
+          lineSeparator: '\n',
+          colSeparatorRegex: /\s+/g,
+          firstLineOnly: true,
+          inPlace: 'bak',
+          doneCallback: function () {
+            var inPlaceContents = fs.readFileSync(fileLocation).toString();
+            assert.equal(inPlaceContents, fileContents.toUpperCase());
+            fs.renameSync(fileLocation+".bak", fileLocation); // use the backup to restore the file
+            done();
+          }
+        });
+      });
     });
 
     describe('when using the buffer technique', function() {

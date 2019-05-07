@@ -60,6 +60,14 @@ for example (not a useful one): `nip 'return lines.length' -1 file.txt`
 
 ---
 
+`-i [suffix]` or `--in-place[=suffix]`
+>edit files in place (makes backup if suffix is supplied - Do not use 'tempnip as suffix' )
+this is useful if you want to save the results in the same file after processing.
+the output stream will be saved in a new file under inputfilename.nip and will then be renamed to inputfilename.
+Sidenote: it will replace all \r\n by \n on macos+linux.
+
+---
+
 ## Examples
 
 Only output lines that begin with the word `var`:
@@ -104,6 +112,8 @@ find the biggest number from all files in a directory:
         )
       }' -1 *
 
+Replace in place all occurence of "__LINE__" in all your javascript file:
+find . -name "*.js" | xargs nip -i 'function(line, i) { return line.replace("__LINE__", i);}'
 ---
 
 By default there are `start`, `end`, `fileStart`, and `fileEnd` events you can register by doing `this.on('end', function() {})`
