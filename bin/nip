@@ -8,7 +8,7 @@ var program = require('commander');
 program
   .version(require('../package.json').version)
   .usage('[js-code] <file ...>')
-  .option('-f, --file', 'javascript file containing the js-code')
+  .option('-f, --file [file]', 'javascript file containing the js-code')
   .option('-1, --first-line-only', 'process whole file at once, not line by line')
   .option('-s, --line-splitter [splitter]', 'line spliter regex or string', '/\\r?\\n/')
   .option('-n, --line-joiner [joiner]', 'string to join lines together with', '\n')
